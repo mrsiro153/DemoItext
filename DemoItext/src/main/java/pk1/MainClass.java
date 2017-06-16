@@ -4,6 +4,8 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import emailService.EmailService;
+import emailService.IEmailService;
 import pk1.template.CreateQuickRegisterEmail;
 
 import java.io.*;
@@ -13,8 +15,8 @@ import java.io.*;
  */
 public class MainClass {
 
-    public static final String DEST = "C:\\Users\\huydoan\\IdeaProjects\\DemoItext\\results\\xmlworker\\html_1.pdf";
-    public static final String SRCHTML ="C:\\Users\\huydoan\\IdeaProjects\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
+    public static final String DEST = "C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
+    public static final String SRCHTML ="C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
 
     public static void main(String[] args) {
         try {
@@ -24,6 +26,8 @@ public class MainClass {
             File file = new File(DEST);
             file.getParentFile().mkdirs();
             new MainClass().createPdf2(DEST);
+            IEmailService emailService = new EmailService();
+            emailService.sendEmail();
         }catch (Exception e){
             e.printStackTrace();
         }

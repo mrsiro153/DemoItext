@@ -8,6 +8,7 @@ quick_register_mail(token,name) ::= <<
 			margin: 0;
 			padding: 0;
 			font-family: sans-serif;
+			background-color: blue;
 		}
 		.container{
 			height : auto;
@@ -82,7 +83,40 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#407ec1', end
 		.footer .text{
 			text-align: center;
 		}
+        /**/
+        @-webkit-keyframes color_change {
+        		  from { background-color: blue; }
+        		  to { background-color: red; }
+        		}
+        		@-moz-keyframes color_change {
+        		  from { background-color: blue; }
+        		  to { background-color: red; }
+        		}
+        		@-ms-keyframes color_change {
+        		  from { background-color: blue; }
+        		  to { background-color: red; }
+        		}
+        		@-o-keyframes color_change {
+        		  from { background-color: blue; }
+        		  to { background-color: red; }
+        		}
+        		@keyframes color_change {
+        		  from { background-color: blue; }
+        		  to { background-color: red; }
+        		}
 
+        		#helloworld {
+        		    background-color: blue;
+        		    border: 5px solid white;
+        		    border-radius: 50px;
+        		    width: 50px;
+        		    height: 50px;
+        		   -webkit-animation: color_change 1s infinite alternate;
+        		   -moz-animation: color_change 1s infinite alternate;
+        		   -ms-animation: color_change 1s infinite alternate;
+        		   -o-animation: color_change 1s infinite alternate;
+        		   animation: color_change 1s infinite alternate;
+        		}
 	</style>
 </head>
 <body>
@@ -108,7 +142,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#407ec1', end
 		</span>
 		</div>
 		<div class="btn">
+		    <h1 style="color:red">Hello world</h1>
 			<a href="http://banktek.ntex.vn/infoRegister?tk=$token$">COMPLETE REGISTRATION</a>
+			<p color:aqua>http://banktek.ntex.vn/infoRegister?tk=$token$</p>
 		</div>
 	</div>
 	<div class="footer">
@@ -120,6 +156,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#407ec1', end
 		</div>
 	</div>
 	</div>
+	<div id="helloworld"></div>
 </body>
 </html>
 >>

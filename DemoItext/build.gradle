@@ -2,6 +2,7 @@ group 'HelloWorld'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 repositories {
     mavenCentral()
@@ -16,6 +17,16 @@ dependencies {
     compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.10'
     // https://mvnrepository.com/artifact/com.itextpdf/itext-pdfa
     compile group: 'com.itextpdf', name: 'itext-pdfa', version: '5.5.10'
+
+    //google drive api
+    compile 'com.google.api-client:google-api-client:1.22.0'
+    compile 'com.google.oauth-client:google-oauth-client-jetty:1.22.0'
+    compile 'com.google.apis:google-api-services-drive:v2-rev271-1.22.0'
+
+    // https://mvnrepository.com/artifact/com.sun.mail/javax.mail
+    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.5.5'
+
+
 
 
 }
