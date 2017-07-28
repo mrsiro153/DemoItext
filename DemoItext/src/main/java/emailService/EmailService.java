@@ -1,6 +1,7 @@
 package emailService;
 
 
+import dto.TestDTO;
 import pk1.template.CreateQuickRegisterEmail;
 
 
@@ -58,8 +59,10 @@ public class EmailService implements IEmailService {
             message.setContent(multipart);
             //
             Transport.send(message);
+            System.out.println("send email success");
         } catch (UnsupportedEncodingException ex) {
-
+            System.out.println("error: unsupport");
+            ex.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,9 +71,15 @@ public class EmailService implements IEmailService {
     @Override
     public void sendEmail() {
         try {
+            //
+            TestDTO dto = new TestDTO();
+            /*dto.setUserName("userName11112");
+            dto.setName("Nguyen hoang Nam");
+            dto.setPassword("this is pass word");*/
+            //
             EmailNotification emailNotification = new EmailNotification();
             emailNotification.setEmail("doannh@ntex.vn");
-            String emailBody = new CreateQuickRegisterEmail("hello", "doannh@ntex.vn").render();
+            String emailBody = new CreateQuickRegisterEmail("hello", "doannh@ntex.vn",dto).render();
             emailNotification.setSubject("Create your BankTek account");
             emailNotification.setMessage(emailBody);
             sendSSL(emailNotification);

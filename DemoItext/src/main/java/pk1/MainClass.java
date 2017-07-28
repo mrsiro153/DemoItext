@@ -4,6 +4,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import dto.TestDTO;
 import emailService.EmailService;
 import emailService.IEmailService;
 import pk1.template.CreateQuickRegisterEmail;
@@ -27,7 +28,7 @@ public class MainClass {
             file.getParentFile().mkdirs();
             new MainClass().createPdf2(DEST);
             IEmailService emailService = new EmailService();
-            emailService.sendEmail();
+            //emailService.sendEmail();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -51,7 +52,9 @@ public class MainClass {
     //
     public void createPdf2(String file) throws IOException, DocumentException {
         String k = "<!DOCTYPE html><html><head><style>body{background-color: aqua} .body{background-color: aqua}</style></head><body> This is my Project    \n<h1> myname he</h1> </body></html>";
-        String body = new CreateQuickRegisterEmail("gfdgdfgdfgd","Nguyen hoang nam").render();
+        TestDTO testDTO = new TestDTO();
+
+        String body = new CreateQuickRegisterEmail("gfdgdfgdfgd","Nguyen hoang nam",testDTO).render();
         System.out.println(body);
         // step 1
         Document document = new Document();

@@ -1,4 +1,4 @@
-quick_register_mail(token,name) ::= <<
+quick_register_mail(token,name,obj) ::= <<
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,6 +124,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#407ec1', end
 	<div class="header">
 	<img src="http://3.bp.blogspot.com/-SMKDXN6mGTA/Uj_VY4foMvI/AAAAAAAAAOY/F3P2b27g4PQ/s640/doremon+doraemon+wallpaper.jpg"/></div>
 	<div class="content-vn">
+        <h3>$obj.userName$</h3>
+        <h3>$obj:{v|$getUserName.(({value: $v$}))}$</h3>
 		<p>Xin chào $name$</p>
 		<div class="text">
 		<span>
