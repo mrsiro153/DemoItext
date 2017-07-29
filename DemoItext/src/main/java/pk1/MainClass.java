@@ -16,8 +16,8 @@ import java.io.*;
  */
 public class MainClass {
 
-    public static final String DEST = "C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
-    public static final String SRCHTML ="C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
+    public static final String DEST = "F:\\ntex\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
+    public static final String SRCHTML ="F:\\ntex\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
 
     public static void main(String[] args) {
         try {
