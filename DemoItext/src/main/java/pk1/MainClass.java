@@ -99,4 +99,7 @@ public class MainClass {
         document.close();
         System.out.println("done create PDF3");
     }
+    /*
+    if you want to use boder of div, change div -> table
+     */
 }
