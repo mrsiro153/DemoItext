@@ -38,6 +38,13 @@ register(user) ::= <<
 	div.personalInfo{
 		margin-left: 15px;
 	}
+	table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid green;
+    }
 </style>
 </head>
 <body>
@@ -81,7 +88,11 @@ register(user) ::= <<
 	<div class="personalInfo">
 		<div style="clear: left;">
 			<p style="float: left;">Họ và tên: </p>
-			<div style="height: 50px;float:left; border: 1px solid green; width: 500px;">$user.name$</div>
+			<table style="float: left;">
+                  <tr>
+                    <th>$user.name$</th>
+                  </tr>
+                </table>
 		</div>
 		<div style="clear: left;">
 			<p style="float: left;">Giới tính: </p>
@@ -96,7 +107,12 @@ register(user) ::= <<
 			<div style="height: 20px;float:left; border: 1px solid green; width: 150px;">$user.dob$</div>
 		</div>
 	</div>
-	<h5 class="textTitle" style="margin-top:200px; ">Chữ ký khách hàng</h5>
+	<h5 class="textTitle" style="margin-top:200px;border-style: solid; ">Chữ ký khách hàng 1</h5>
+
+	$if(user.otherType)$
+	    <img alt="" src="http://files.gamebanana.com/img/av/582e2e9f340ee.png"/>
+	$else$
+	$endif$
 </body>
 </html>
 >>
