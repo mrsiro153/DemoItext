@@ -1,8 +1,8 @@
-register(user) ::= <<
+register(user,userDTOS) ::= <<
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
+<meta charset="UTF-8"/>
 <title>Insert title here</title>
 <!-- bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -44,6 +44,7 @@ register(user) ::= <<
 
     table, td, th {
         border: 2px solid green;
+        padding: 2px;
     }
 </style>
 </head>
@@ -113,6 +114,28 @@ register(user) ::= <<
 	    <img alt="" src="http://files.gamebanana.com/img/av/582e2e9f340ee.png"/>
 	$else$
 	$endif$
+	<h1>TEST loop</h1>
+	<table style="float: left;">
+	    $userDTOS :{userDTO|
+        <tr>
+            <th>$userDTO.name$</th>
+            <th>$userDTO.gender$</th>
+            <th>$userDTO.otherName$</th>
+            <th>$userDTO.dob$</th>
+            <th>
+                $if(userDTO.thanhtoan)$
+                    <img alt="" src="http://files.gamebanana.com/img/av/582e2e9f340ee.png"/>
+                $else$
+                $endif$
+
+            </th>
+        </tr>
+         }$
+    </table>
+
+
+
+
 </body>
 </html>
 >>

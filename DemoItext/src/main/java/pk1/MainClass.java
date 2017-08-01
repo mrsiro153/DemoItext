@@ -5,6 +5,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.XMLWorkerFontProvider;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import dto.TestDTO;
 import dto.UserDTO;
@@ -22,8 +23,8 @@ import java.nio.charset.StandardCharsets;
  */
 public class MainClass {
 
-    public static final String DEST = "F:\\ntex\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
-    public static final String SRCHTML ="F:\\ntex\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
+    public static final String DEST = "C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
+    public static final String SRCHTML ="C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
 
     public static void main(String[] args) {
         try {
@@ -79,11 +80,12 @@ public class MainClass {
     }
     //
     public void createPdf3(String file) throws IOException,DocumentException{
-        String body = new CreateRegister(new UserDTO().defaultUserDTO()).render();
+        UserDTO us = new UserDTO();
+        String body = new CreateRegister(us.defaultUserDTO(),us.defaultListUser()).render();
         /*BaseFont bf = BaseFont.createFont("C:\\arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         Font font = new Font(bf, 12);*/
         //
-        System.out.println(body);
+        //System.out.println(body);
         // step 1
         Document document = new Document();
         // step 2
@@ -95,7 +97,7 @@ public class MainClass {
         InputStream is = new ByteArrayInputStream(body.getBytes(StandardCharsets.UTF_8));
         // step 5
         XMLWorkerHelper.getInstance().parseXHtml(writer, document,
-                is, Charset.forName("UTF-8"));
+                is, Charset.forName("UTF-8"),new XMLWorkerFontProvider("resources/fonts/"));
         document.close();
         System.out.println("done create PDF3");
     }

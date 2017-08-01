@@ -1,5 +1,8 @@
 package dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by huydoan on 31/07/2017.
  */
@@ -38,6 +41,32 @@ public class UserDTO {
         equalUser=false;
         otherType=false;
         return this;
+    }
+    //
+    public List<UserDTO> defaultListUser(){
+        List<UserDTO> userDTOS = new ArrayList<UserDTO>();
+        for(int i = 0; i<9;i++){
+            UserDTO userDTO = new UserDTO();
+            userDTO.setName("Nguyen Huy Doan");
+            userDTO.setGender("Nam");
+            userDTO.setOtherName("siro");
+            userDTO.setDob("11-12-1995");
+            userDTO.setThanhtoan(true);
+            userDTO.setGdck(false);
+            userDTO.setEqualUser(false);
+            userDTO.setOtherType(false);
+            if(i%2==0){
+                System.out.println("i chia het cho 2: "+i);
+                userDTO.setName("Hoang Van Nam");
+                userDTO.setDob("02-02-2598");
+                userDTO.setEqualUser(true);
+                userDTO.setThanhtoan(false);
+                userDTO.setOtherType(true);
+            }
+            System.out.println(userDTO.thanhtoan);
+            userDTOS.add(userDTO);
+        }
+        return userDTOS;
     }
     //
 
@@ -106,4 +135,17 @@ public class UserDTO {
     }
     //
 
+
+    public String toStringUSER_DTO() {
+        return "UserDTO{" +
+                "name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", otherName='" + otherName + '\'' +
+                ", dob='" + dob + '\'' +
+                ", thanhtoan=" + thanhtoan +
+                ", gdck=" + gdck +
+                ", equalUser=" + equalUser +
+                ", otherType=" + otherType +
+                '}';
+    }
 }
