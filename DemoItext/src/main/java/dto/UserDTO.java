@@ -56,14 +56,12 @@ public class UserDTO {
             userDTO.setEqualUser(false);
             userDTO.setOtherType(false);
             if(i%2==0){
-                System.out.println("i chia het cho 2: "+i);
                 userDTO.setName("Hoang Van Nam");
                 userDTO.setDob("02-02-2598");
                 userDTO.setEqualUser(true);
                 userDTO.setThanhtoan(false);
                 userDTO.setOtherType(true);
             }
-            System.out.println(userDTO.thanhtoan);
             userDTOS.add(userDTO);
         }
         return userDTOS;

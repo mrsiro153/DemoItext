@@ -18,6 +18,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
+
 /**
  * Created by huydoan on 13/06/2017.
  */
@@ -82,6 +83,7 @@ public class MainClass {
     public void createPdf3(String file) throws IOException,DocumentException{
         UserDTO us = new UserDTO();
         String body = new CreateRegister(us.defaultUserDTO(),us.defaultListUser()).render();
+        System.out.println(body);
         /*BaseFont bf = BaseFont.createFont("C:\\arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         Font font = new Font(bf, 12);*/
         //
