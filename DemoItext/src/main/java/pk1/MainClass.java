@@ -13,7 +13,6 @@ import emailService.EmailService;
 import emailService.IEmailService;
 import pk1.template.CreateQuickRegisterEmail;
 import pk1.template.CreateRegister;
-
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -38,6 +37,8 @@ public class MainClass {
             //new MainClass().createPdf2(DEST);
             //IEmailService emailService = new EmailService();
             //emailService.sendEmail();
+
+
         }catch (Exception e){
             e.printStackTrace();
         }

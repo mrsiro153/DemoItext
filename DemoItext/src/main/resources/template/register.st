@@ -104,17 +104,33 @@ register(user,userDTOS) ::= <<
 	<br/>
 	<h5 class="textTitle">THÔNG TIN VỀ CHỦ KHOẢN:</h5>
 	<div class="personalInfo">
-		<p>Họ và tên: $user.name$</p>
-		<p>Giới tính: $user.gender$</p>
-		<p>Tên khác: $user.otherName$</p>
-		<p>Ngày sinh: $user.dob$</p>
+		<table>
+                        <tr>
+                          <th>Họ và tên: </th>
+                          <th class="listUser">$user.name$</th>
+                        </tr>
+                        <tr>
+                          <th>Giới tính: </th>
+                          <th class="listUser">$user.gender$</th>
+                        </tr>
+                        <tr>
+                          <th>Tên khác: </th>
+                          <th class="listUser">$user.otherName$</th>
+                        </tr>
+                        <tr>
+                           <th>Ngày sinh: </th>
+                           <th class="listUser">$user.dob$</th>
+                        </tr>
+        </table>
 	</div>
 	<h5 class="textTitle" style="margin-top:200px;border-style: solid; ">Chữ ký khách hàng 1</h5>
 
+    <h1>Test If else</h1>
 	$if(user.otherType)$
 	    <img alt="" src="http://files.gamebanana.com/img/av/582e2e9f340ee.png"/>
 	$else$
 	$endif$
+
 	<h1>TEST loop</h1>
 	<table class="listUser">
 	    $userDTOS :{userDTO|

@@ -17,6 +17,8 @@ dependencies {
     compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.11'
     // https://mvnrepository.com/artifact/com.itextpdf/itext-pdfa
     compile group: 'com.itextpdf', name: 'itext-pdfa', version: '5.5.11'
+    // https://mvnrepository.com/artifact/org.scilab.forge/jlatexmath
+    compile group: 'org.scilab.forge', name: 'jlatexmath', version: '1.0.6'
 
     //google drive api
     compile 'com.google.api-client:google-api-client:1.22.0'
