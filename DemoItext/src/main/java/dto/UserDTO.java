@@ -60,7 +60,7 @@ public class UserDTO {
                 .setNumberCMND("235415498")
                 .setDateCreateCMND(date.toString())
                 .setPlaceCreateCMND("HCM City")
-                .setAddress("155 Hoang Van Thu, HCM city gdfgdnfkg jgfd flgjdflg gdfg df.gm aaaaaa")
+                .setAddress("155 Hoang Van Thu, HCM city")
                 .setPhoneNumber("0215222325")
                 .setEmail("abc@gmail.com")
                 .setOccupation("gamer Dota2")

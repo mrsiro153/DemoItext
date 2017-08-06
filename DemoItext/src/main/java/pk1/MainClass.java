@@ -2,18 +2,14 @@ package pk1;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.tool.xml.XMLWorkerFontProvider;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import dto.TestDTO;
 import dto.UserDTO;
-import emailService.EmailService;
-import emailService.IEmailService;
 import pk1.template.CreateQuickRegisterEmail;
 import pk1.template.CreateRegister;
+import pk1.template.updateInfo.CreateUpdateUserInfo;
+
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +20,7 @@ import java.nio.charset.StandardCharsets;
  */
 public class MainClass {
 
-    public static final String DEST = "C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
+    public static final String DEST = "F:\\ntex\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\result.pdf";
     public static final String SRCHTML ="C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\myFile.html";
     public static final String DEST_HTML= "C:\\Users\\DoanNH\\IdeaProjects\\DemoItext\\DemoItext\\src\\main\\resources\\htmlFile\\resulthtml.html";
 
@@ -35,8 +31,8 @@ public class MainClass {
             //
             File file = new File(DEST);
             file.getParentFile().mkdirs();
-            new MainClass().createPdf3(DEST);
-            //new MainClass().createPdf2(DEST);
+            //new MainClass().createRegisterTemplate(DEST);
+            new MainClass().createChangeProfileTemplate(DEST);
             //IEmailService emailService = new EmailService();
             //emailService.sendEmail();
 
@@ -83,7 +79,7 @@ public class MainClass {
         document.close();
     }
     //
-    public void createPdf3(String file) throws IOException,DocumentException{
+    public void createRegisterTemplate(String file) throws IOException,DocumentException{
         UserDTO us = new UserDTO();
         String body = new CreateRegister(us.createDefaultUserDTO(),us.defaultListUser()).render();
         System.out.println(body);
@@ -111,4 +107,29 @@ public class MainClass {
     /*
     if you want to use boder of div, change div -> table
      */
+    public void createChangeProfileTemplate(String file) throws IOException,DocumentException{
+        UserDTO us = new UserDTO();
+        String body = new CreateUpdateUserInfo(us.createDefaultUserDTO()).render();
+        System.out.println(body);
+        //
+        /*PrintWriter writer1 = new PrintWriter(DEST_HTML, "UTF-8");
+        writer1.println(body);
+        writer1.close();*/
+
+        // step 1
+        Document document = new Document();
+        // step 2
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
+        writer.setInitialLeading(12);
+        // step 3
+        document.open();
+        // step 4
+        InputStream is = new ByteArrayInputStream(body.getBytes(StandardCharsets.UTF_8));
+        // step 5
+
+        XMLWorkerHelper.getInstance().parseXHtml(writer, document,
+                is, Charset.forName("UTF-8"));
+        document.close();
+        System.out.println("done create createChangeProfileTemplate");
+    }
 }
